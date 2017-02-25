@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>自适应三栏布局</title>
+	<!-- 第一种 流体布局 左右模块各自左右浮动，并设置中间模块的margin值使中间模块宽度自适应-->
+	<!-- <style>
+		.left{
+			float: left;
+			height: 200px;
+			width: 100px;
+			background-color: red;
+		}
+		.right{
+			width: 200px;
+			height: 200px;
+			background-color: blue;
+			float: right;
+		}
+		.main{
+			margin-left: 120px;
+			margin-right: 220px;
+			height: 200px;
+			background-color: green;
+		}
+	</style> -->
+
+	<!-- 2 BFC三栏布局 BFC区域不会与浮动元素重叠 缺点跟方法一类似，主要模块无法最先加载，当页面中内容较多时会影响用户体验-->
+	<style type="text/css">
+		.left{
+			float: left;
+			height: 200px;
+			width: 100px;
+			margin-right: 20px;
+			background-color: red;
+		}
+		.right{
+			width: 200px;
+			height: 200px;
+			float: right;
+			margin-left: 20px;
+			background-color: blue;
+		}
+		.main{
+			height: 200px;
+			overflow: hidden;
+			background-color: green;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="left"></div>
+		<div class="right"></div>
+		<div class="main">xzvczxvdasdffffffffffasdfaaaaaaaaaaah</div>
+	</div>
+	
+</body>
+</html>
