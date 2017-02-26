@@ -26,6 +26,31 @@
 			margin-left: 20px;
 			background-color: green;
 		}
+
+		/* 第六种 table布局 无法设置栏间距*/
+		.content{
+			display: table;
+			width: 100%;
+		}
+		.left1, .main1, .right1{
+			display: table-cell;
+
+		}
+		.left1{
+			width: 200px;
+			height: 300px;
+			background-color: red;
+		}
+		.main1{
+			background-color: blue;
+		}
+		.right1{
+			width: 100px;
+			height: 300px;
+			background-color: green;
+		}
+
+		/* 第七种布局 绝对定位布局 */
 	</style>
 </head>
 <body>
@@ -34,5 +59,20 @@
 		<div class="left"></div>
 		<div class="right"></div>
 	</div>
+	<!-- 第六种布局 -->
+	<div class="content">
+		<div class="left1"></div>
+		<div class="main1"></div>
+		<div class="right1"></div>
+	</div>
+
+	<!-- 第七中布局 -->
+	<div class="box">
+		<div class="main7"></div>
+		<div class="left7"></div>
+		<div class="right7"></div>
+	</div>
+
+
 </body>
 </html>
