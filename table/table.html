@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>创建表格</title>
+</head>
+<body>
+	<script>
+		var table = document.createElement("table");
+		table.border = 1;
+		table.width = "100%";
+		// 创建tabody
+		var tbody = document.createElement("tbody");
+		table.appendChild(tbody);
+
+		// 创建第一行
+		// tbody.insertRow(0);
+		// tbody.rows[0].insertCell(0);
+		// tbody.rows[0].cells[0].appendChild(document.createTextNode("cell 1 ,1"));
+		// tbody.rows[0].insertCell(1);
+		// tbody.rows[0].cells[1].appendChild(document.createTextNode("Cell 2,1"));
+		// // 创建第二行
+		// tbody.insertRow(1);
+		// tbody.rows[1].insertCell(0);
+		// tbody.rows[1].cells[0].appendChild(document.createTextNode("cell 1 ,1"));
+		// tbody.rows[1].insertCell(1);
+		// tbody.rows[1].cells[1].appendChild(document.createTextNode("Cell 2,1"));
+		
+		// 字符串拼接方式创建表格
+		for(var i=0;i<6;i++){
+			
+			tbody.innerHTML +="<tr><td>1</td><td>2</td></tr>";
+			
+		}
+		
+		//将表格添加到文档主体中
+		document.body.appendChild(table);
+
+	</script>
+</body>
+</html>

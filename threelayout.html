@@ -5,7 +5,7 @@
 	<title>三列自适应布局</title>
 	<!-- 第三类 双飞翼布局  利用的是浮动元素margin负值的应用，主体内容可以优先加载-->
 	<style>
-		/*.content{
+		.content{
 			float: left;
 			width: 100%;
 		}
@@ -29,10 +29,10 @@
 			margin-left: -200px;
 			background-color: blue;
 		}
-*/
+
 		/*第四种 圣杯布局*/
 		/*跟双飞翼布局很像，相对HTML结构相对简单，样式稍复杂，也是主体内容优先加载*/
-		.container{
+		/*.container{
 			margin-left: 120px;
 			margin-right: 220px;
 		}
@@ -59,19 +59,19 @@
 			position: relative;
 			right: -220px;
 			background-color: green;
-		}
+		}*/
 	</style>
 </head>
 <body>
-	<!-- <div class="content">
+	<div class="content">
 		<div class="main"></div>
 	</div>
 	<div class="left"></div>
-	<div class="right"></div> -->
-	<div class="container">
+	<div class="right"></div>
+	<!-- <div class="container">
 		<div class="main"></div>
 		<div class="left"></div>
 		<div class="right"></div>
-	</div>
+	</div> -->
 </body>
 </html>
