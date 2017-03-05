@@ -1,0 +1,28 @@
+<!-- WEb_worker.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>web worker 示例</title>
+</head>
+<body>
+	<h1>从1到给定数值的求和示例</h1>
+	输入数值：<input type="text" id="num">
+	<button onclick="calculate()">计算</button>
+	<script type="text/javascript">
+		// 创建执行计算的线程
+		var worker = new Worker("SumCalculate.js");
+		// 接收从线程中传出来的计算结果
+		worker.onmessage = function(event){
+			// 消息文本放置在data属性中，可以是任何JavaScript对象
+			alert("合计值为" + event.data + "。");
+		};
+		function calculate() {
+			var num = parseInt(document.getElementById("num").value, 10);
+			// 将数值传给线程
+			worker.postMessage(num);
+		}
+
+	</script>
+</body>
+</html>
