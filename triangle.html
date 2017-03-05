@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>	三角形的CSS实现</title>
+	<style>
+		.up{
+		    width:0;
+		    height:0;
+		    border-width:0 60px 60px;
+		    border-style:solid;
+		    border-color:transparent transparent #333;/*透明 透明  灰*/
+		    margin:40px auto;
+		    position:relative;
+		}
+		.up span{
+		    display:block;
+		    width:0;
+		    height:0;
+		    border-width:0 50px 50px;
+		    border-style:solid;
+		    border-color:transparent transparent #fc0;/*透明 透明  黄*/
+		    position:absolute;
+		    top:5px;
+		    left:-50px;
+		}
+	</style>
+</head>
+<body>
+	<div class="up">
+		<span></span>
+	</div>
+	<div class="down">
+		<span>	</span>
+	</div>
+	<div class="left">	
+		<span></span>
+	</div>
+	<div class="right">
+		<span></span>
+	</div>
+</body>
+</html>
