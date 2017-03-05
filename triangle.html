@@ -46,18 +46,43 @@
 		    top:-56px;
 		    left:-50px;
 		}
+		/*向左三角形*/
+		.left{
+		    width:0;
+		    height:0;
+		    border-width:60px 0 60px 60px;
+		    border-style:solid;
+		    border-color:transparent transparent transparent #333 ;/*透明 透明  灰*/
+		    margin:40px auto;
+		    position:relative;
+		}
+		.left span{
+		    display:block;
+		    width:0;
+		    height:0;
+		    border-width:50px 0 50px 50px;
+		    border-style:solid;
+		    border-color:transparent transparent transparent #fc0;/*透明 透明  黄*/
+		    position:absolute;
+		    top:-46px;
+		    left:-54px;
+		}
 	</style>
 </head>
 <body>
+	<!-- 向上的三角形 -->
 	<div class="up">
 		<span></span>
 	</div>
+	<!-- 向下的三角形 -->
 	<div class="down">
 		<span></span>
 	</div>
+	<!-- 向左的三角形 -->
 	<div class="left">	
 		<span></span>
 	</div>
+	<!-- 向右的三角形 -->
 	<div class="right">
 		<span></span>
 	</div>
