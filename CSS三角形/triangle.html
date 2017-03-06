@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>	三角形的CSS实现</title>
+	<style>
+		/*向上方向的三角形*/
+		.up{
+		    width:0;
+		    height:0;
+		    border-width:0 60px 60px;
+		    border-style:solid;
+		    border-color:transparent transparent #333;/*透明 透明  灰*/
+		    margin:40px auto;
+		    position:relative;
+		}
+		.up span{
+		    display:block;
+		    width:0;
+		    height:0;
+		    border-width:0 50px 50px;
+		    border-style:solid;
+		    border-color:transparent transparent #fc0;/*透明 透明  黄*/
+		    position:absolute;
+		    top:5px;
+		    left:-50px;
+		}
+		/*向下方向的三角形*/
+		.down{
+		    width:0;
+		    height:0;
+		    border-width:60px 60px 0;
+		    border-style:solid;
+		    border-color:#333 transparent transparent ;/*透明 透明  灰*/
+		    margin:40px auto;
+		    position:relative;
+		}
+		.down span{
+		    display:block;
+		    width:0;
+		    height:0;
+		    border-width:50px 50px 0;
+		    border-style:solid;
+		    border-color:#fc0 transparent transparent ;/*黄 透明  透明*/
+		    position:absolute;
+		    top:-56px;
+		    left:-50px;
+		}
+		/*向左三角形*/
+		.left{
+		    width:0;
+		    height:0;
+		    border-width:60px 0 60px 60px;
+		    border-style:solid;
+		    border-color:transparent transparent transparent #333 ;/*透明 透明 透明 灰*/
+		    margin:40px auto;
+		    position:relative;
+		}
+		.left span{
+		    display:block;
+		    width:0;
+		    height:0;
+		    border-width:50px 0 50px 50px;
+		    border-style:solid;
+		    border-color:transparent transparent transparent #fc0;/*透明 透明 透明  黄*/
+		    position:absolute;
+		    top:-50px;
+		    left:-56px;
+		}
+		/*向右的三角形*/
+		.right{
+		    width:0;
+		    height:0;
+		    border-width:60px 60px 60px 0;
+		    border-style:solid;
+		    border-color:transparent #333  transparent transparent;/*透明 灰 透明  透明*/
+		    margin:40px auto;
+		    position:relative;
+		}
+		.right span{
+		    display:block;
+		    width:0;
+		    height:0;
+		    border-width:50px 50px 50px 0;
+		    border-style:solid;
+		    border-color:transparent #fc0 transparent transparent;/*透明 黄 透明 透明*/
+		    position:absolute;
+		    top:-50px;
+		    left:6px;
+		}
+	</style>
+</head>
+<body>
+	<!-- 向上的三角形 -->
+	<div class="up">
+		<span></span>
+	</div>
+	<!-- 向下的三角形 -->
+	<div class="down">
+		<span></span>
+	</div>
+	<!-- 向左的三角形 -->
+	<div class="left">	
+		<span></span>
+	</div>
+	<!-- 向右的三角形 -->
+	<div class="right">
+		<span></span>
+	</div>
+</body>
+</html>
