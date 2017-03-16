@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>页面的简易实现</title>
+	<!-- 方法一 -->
+	<!-- <style>
+		#map{
+			padding: 0;
+			margin: 0;
+			height:100%;
+			width:100%;
+			position:absolute;
+			top:0;
+			bottom:0;
+			background-color:red;
+			z-index:0;
+			overflow:hidden;
+			word-break: break-all;
+			}
+	</style> -->
+	<!-- 方法二 -->
+	<style>	
+		html,body{
+			padding:0;
+			margin:0;
+			height:100%;
+			overflow:hidden;
+			}
+		#map{
+			height:100%;
+			z-index:0;
+			background-color:red;
+		}
+	</style>
+</head>
+<body>
+	<div id="map"></div>
+</body>
+</html>
