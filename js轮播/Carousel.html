@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<style type="text/css">
+*{margin:0;padding:0;list-style-type:none;}
+body{font:12px/180% Arial, Helvetica, sans-serif, "宋体";color:#333;background:#f0f0f0;}
+a,img{border:0;}
+/* demo */
+.demo{width:780px;margin:0 auto;}
+.demo h2{height:70px;line-height:50px;font-size:22px;font-weight:normal;font-family:"Microsoft YaHei,SimHei";text-align:center;}
+/* focus */
+#focus{position:relative;width:780px;height:420px;overflow:hidden;}
+#focus ul{height:420px;position:absolute;}
+#focus ul li{float:left;width:780px;height:420px;overflow:hidden;position:relative;background:#000;}
+#focus ul li div{position:absolute;overflow:hidden;}
+#focus .btnBg{position:absolute;width:780px;height:40px;left:0;bottom:0;background:#000;}
+#focus .btn{position:absolute;height:30px;left:10px;bottom:4px;}
+#focus .btn span{
+	float:left;display:inline-block;width:30px;height:30px;line-height:30px;text-align:center;font-size:16px;margin-right:10px;cursor:pointer;background:#716564;color:#ffffff;
+	border-radius:15px;
+	-moz-border-radius:15px;
+	-webkit-border-radius:15px;
+}
+#focus .btn span.on{background:#B91919;color:#ffffff;}
+</style>
+
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript">
+$(function(){
+	var sWidth = $("#focus").width();
+	//获取焦点图的宽度
+	var len = $("#focus ul li").length; 
+	//获取焦点图长度
+	var index = 0;
+	//获取焦点图个数v
+	var picTimer;
+	//创建一个picTimer参数
+
+	//以下代码添加数字按钮和按钮后的半透明长条
+	var btn = "<div class='btnBg'></div><div class='btn'>";
+	//将两个div和class都放进btn里面
+	for(var i=0; i < len; i++){
+	//然后一个判断
+		btn += "<span>" + (i+1) + "</span>";
+		//将判断放进btn里面进行判断
+	}
+	$("#focus").append(btn);
+	//显示下面的按钮很长条
+	$("#focus .btnBg").css("opacity",0.3);
+	//将下面的长条调整为半透明的
+
+	//为数字按钮添加鼠标滑入事件，以显示相应的内容
+	$("#focus .btn span").mouseenter(function(){
+	//改变背景颜色
+		index = $("#focus .btn span").index(this);
+		//定义鼠标触及按钮的事件
+		showPics(index);
+		//当显示那个图片相对应的按钮是按钮的背景颜色改变
+	}).eq(0).trigger("mouseenter");
+	//是一个选中的事件触及以后就自动选中就是按钮的触及效果
+
+	
+	$("#focus ul").css("width",sWidth * (len + 1));
+	//本例为左右滚动，即所有li元素都是在同一排向左浮动，所以这里需要计算出外围ul元素的宽度
+	
+	$("#focus ul li div").hover(function(){
+		$(this).siblings().css("opacity",0.7);
+	},function() {
+		$("#focus ul li div").css("opacity",1);
+	});
+	//鼠标滑入某li中的某div里，调整其同辈div元素的透明度，由于li的背景为黑色，所以会有变暗的效果
+
+	
+	$("#focus").hover(function(){
+		clearInterval(picTimer);
+		//鼠标滑上焦点图时停止自动播放，滑出时开始自动播放
+	},function(){
+		picTimer = setInterval(function(){
+			if(index == len){ 
+				showFirPic();
+				index = 0;
+		//如果索引值等于li元素个数，说明最后一张图播放完毕，接下来要显示第一张图，即调用showFirPic()，然后将索引值清零
+			}else{ 
+				showPics(index);
+				//如果索引值不等于li元素个数，按普通状态切换，调用showPics()
+			}
+			index++;
+		},3000); 
+		//此3000代表自动播放的间隔，单位：毫秒也就是3秒
+	}).trigger("mouseleave");
+
+	//显示图片函数，根据接收的index值显示相应的内容
+	function showPics(index){  
+	//普通切换
+		var nowLeft = -index*sWidth; 
+		//根据index值计算ul元素的left值
+		$("#focus ul").stop(true,false).animate({"left":nowLeft},500); 
+		//通过animate()调整ul元素滚动到计算出的position
+		$("#focus .btn span").removeClass("on").eq(index).addClass("on");
+		 //为当前的按钮切换到选中的效果
+	}
+
+	function showFirPic(){ 
+	//最后一张图自动切换到第一张图时专用
+		$("#focus ul").append($("#focus ul li:first").clone());
+		var nowLeft = -len*sWidth; 
+		//通过li元素个数计算ul元素的left值，也就是最后一个li元素的右边
+		$("#focus ul").stop(true,false).animate({"left":nowLeft},500,function(){
+		//通过callback，在动画结束后把ul元素重新定位到起点，然后删除最后一个复制过去的元素
+			$("#focus ul").css("left","0");
+			//定义样式距左为0
+			$("#focus ul li:last").remove();
+			//定义清除事件 清除所有的#focus ul li:last的ID
+		}); 
+		$("#focus .btn span").removeClass("on").eq(0).addClass("on"); 
+		//为第一个按钮添加选中的效果
+	}
+	
+});
+</script>
+</head>
+
+<body>
+
+
+<div class="demo">
+	<h2>jquery高仿2012淘宝商城多格焦点图滚动切换</h2>
+	<div id="focus">
+		<ul>
+			<li>
+				<div style="left:0;top:0;">
+					<a href="#"><img width="780" height="420" src="images/5.jpg" alt="2012淘宝商城最新多格焦点图源代码" /></a>
+				</div>
+				
+			</li>
+			<li>
+				<div style="left:0;top:0;">
+					<a href="#"><img width="560" height="420" src="images/1.jpg" alt="2012淘宝商城最新多格焦点图源代码" /></a>
+				</div>
+				<div style="right:0;top:0;">
+					<a href="#"><img width="220" height="140" src="images/2.jpg" alt="2012淘宝商城最新多格焦点图源代码" /></a>
+				</div>
+				<div style="right:0;top:140px;">
+					<a href="#"><img width="220" height="140" src="images/3.jpg" alt="2012淘宝商城最新多格焦点图源代码" /></a>
+				</div>
+				<div style="right:0;bottom:0;">
+					<a href="#"><img width="220" height="140" src="images/4.jpg" alt="2012淘宝商城最新多格焦点图源代码" /></a>
+				</div>
+			</li>
+			<li>
+				<div style="left:0;top:0;">
+					<a href="#"><img width="260" height="210" src="images/5.jpg" alt="2012淘宝商城最新多格焦点图源代码" /></a>
+				</div>
+				<div style="left:260px;top:0;">
+					<a href="#"><img width="260" height="210" src="images/6.jpg" alt="2012淘宝商城最新多格焦点图源代码" /></a>
+				</div>
+				<div style="left:0;top:210px;">
+					<a href="#"><img width="520" height="210" src="images/7.jpg" alt="2012淘宝商城最新多格焦点图源代码" /></a>
+				</div>
+				<div style="right:0;top:0;">
+					<a href="#"><img width="260" height="420" src="images/8.jpg" alt="2012淘宝商城最新多格焦点图源代码" /></a>
+				</div>
+			</li>
+			<li>
+				<div style="left:0;top:0;">
+					<a href="#"><img width="560" height="420" src="images/9.jpg" alt="2012淘宝商城最新多格焦点图源代码" /></a>
+				</div>
+				<div style="right:0;top:0;">
+					<a href="#"><img width="220" height="140" src="images/10.jpg" alt="2012淘宝商城最新多格焦点图源代码" /></a>
+				</div>
+				<div style="right:0;top:140px;">
+					<a href="#"><img width="220" height="140" src="images/11.jpg" alt="2012淘宝商城最新多格焦点图源代码" /></a>
+				</div>
+				<div style="right:0;bottom:0;">
+					<a href="#"><img width="220" height="140" src="images/12.jpg" alt="2012淘宝商城最新多格焦点图源代码" /></a>
+				</div>
+			</li>
+			<li>
+				<div style="left:0;top:0;">
+					<a href="#"><img width="780" height="420" src="images/13.jpg" alt="2012淘宝商城最新多格焦点图源代码" /></a>
+				</div>
+			</li>
+		</ul>
+	</div>
+</div>
+	
+</body>
+</html>
