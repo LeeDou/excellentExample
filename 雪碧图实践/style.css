@@ -1,0 +1,17 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+
+div{
+	width: 80px;
+	height: 80px;
+	background:url(images/cs.png) no-repeat ;
+
+}
+.cs1{background-position:0 0;}
+.cs2{background-position:0 -80px;}
+.cs3{background-position:0 -160px;}
+.cs4{background-position:0 -240px;}
+.cs5{background-position:0 -320px;}
+.cs6{background-position:0 -400px;}
