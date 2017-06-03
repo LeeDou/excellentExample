@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>运动小球</title>
+	<style>
+		#box{
+			position: absolute;
+			width: 20px;
+			height: 20px;
+			left:0;
+			top: 0;
+			border-radius: 20px;
+			background-color: red;
+		}
+	</style>
+</head>
+<body>
+	<div id="box"></div>
+	<script>
+	    // 浏览器窗口大小
+	    var W = document.body.clientWidth||document.documentElement.clientWidth;
+	    var H = document.body.clientHeight||document.documentElement.clientHeight;
+		// 小球坐标
+		var ballX = 0;
+		var ballY = 0;
+		// 小球在x、y轴上的移动方向
+		var directX = 1;
+		var directY = 1; 
+		var ball = document.getElementById('box')
+		//小球移动
+		function move() {
+			ballX += directX;
+			ballY += directY;
+			ball.style.left = ballX + 'px';
+			ball.style.top = ballY + 'px';
+			if(ballX+ball.offsetWidth>=W||ballX<=0){
+				directX = -directX;
+			}
+			if (ballY+ball.offsetHeight>=H||ballY<=0) {
+				directY = -directY;
+			}	
+		}
+		var timer = setInterval("move()",10)		
+	</script>
+</body>
+</html>
+
