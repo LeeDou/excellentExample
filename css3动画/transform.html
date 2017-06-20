@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<style>
+div{
+	position:absolute;
+	left: 50%;
+	top: 50%;
+	margin-left: -50px;
+	margin-top: -50px;
+	animation:box 5s linear ;
+	width:100px;
+	height:100px;
+	background:green;
+}
+@keyframes box{
+	0%{transform:rotate(0deg);left: 50%;}
+	25%{transform:rotate(180deg);left: 50%;}
+	50%{transform:rotate(360deg);left: 50%;}
+	75%{transform:rotate(360deg);left: 75%;}
+	100% {transform:rotate(360deg);left: 100%;}}
+</style>
+<body>	
+<div></div>
+</body>
+</html>
+
+
+
+
+
+ 
